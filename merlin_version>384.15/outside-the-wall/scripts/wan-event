@@ -1,0 +1,11 @@
+#!/bin/sh
+
+Say(){
+   echo -e $$ $@ | logger -st "[$(basename $0)]"
+}
+
+if [ $2 = "connected" ]
+then
+	cru a checkL2tp "*/1 * * * * /jffs/scripts/00_check-l2tp.sh"
+	Say "Done cron job set up, cron job id: checkL2tp"
+fi
